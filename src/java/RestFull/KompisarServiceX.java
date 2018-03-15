@@ -58,7 +58,7 @@ public class KompisarServiceX {
         return inte;
     }
     @POST
-    @Path("kompisar/add")
+    @Path("/kompisar/add")
     //@Produces(MediaType.APPLICATION_JSON)
     public Response addKompis(Kompisar k){
         Response res = new Response("Kompis addad", Boolean.FALSE);
