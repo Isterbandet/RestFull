@@ -67,6 +67,36 @@ public class KompisarServiceX {
         return res;
         
     }
+}
+    /*
+   POST
+   @Path("/book/update") 
+   public Response upsertBook(Book b){ 
+       Response res = new Response("Book updated", Boolean.FALSE);
+       
+       int indexToUpdate = -1;
+       for (int i = 0; i < bookList.size(); i++){
+           if (bookList.get(i).getId() == b.getId()){
+               indexToUpdate = i;
+           }
+       }
+       
+       if (indexToUpdate == -1){
+            bookList.add(b);
+            res.setMessage("Book inserted");
+            res.setStatus(Boolean.TRUE);
+       }
+       else{
+           bookList.set(indexToUpdate, b);
+           res.setStatus(Boolean.TRUE);
+       }
+/*
+       
+     
+    
+    
+    
+    
     
 
    
