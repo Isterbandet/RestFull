@@ -23,7 +23,7 @@ public class KompisarServiceX {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Kompisar> getKompisarJSON(){
         
-        return allaKompisar;//kompisdao.getAllKompisar();
+        return allaKompisar; //kompisDao.getAllKompisar();  //
     }
     @GET
     @Path("/kompisarJSON/{namn}")
@@ -76,32 +76,36 @@ public class KompisarServiceX {
         return res;
         
     }
-}
-    /*
-   POST
-   @Path("/book/update") 
-   public Response upsertBook(Book b){ 
-       Response res = new Response("Book updated", Boolean.FALSE);
+
+    
+   @POST
+   @Path("/kompisar/update") 
+   public Response upsertKompis(Kompisar k){ 
+       Response res = new Response("Kompis updated", Boolean.FALSE);
        
        int indexToUpdate = -1;
-       for (int i = 0; i < bookList.size(); i++){
-           if (bookList.get(i).getId() == b.getId()){
+       for (int i = 0; i < allaKompisar.size(); i++){
+           if (allaKompisar.get(i).getNamn() == k.getNamn()){
                indexToUpdate = i;
            }
        }
        
        if (indexToUpdate == -1){
-            bookList.add(b);
-            res.setMessage("Book inserted");
-            res.setStatus(Boolean.TRUE);
+            allaKompisar.add(k);
+            res.setMessage("Kompis inserted");
+            res.setBoolean(Boolean.TRUE);
        }
        else{
-           bookList.set(indexToUpdate, b);
-           res.setStatus(Boolean.TRUE);
+           allaKompisar.set(indexToUpdate, k);
+           res.setBoolean(Boolean.TRUE);
        }
+        kompisDao.persistKompisar(allaKompisar);
+       return res;
 
  
 }
+}
+   /*
         
 //        int indexToRemove= -1;
 //        for (int i=0; i < allaKompisar.size(); i++){

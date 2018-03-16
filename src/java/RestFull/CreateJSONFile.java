@@ -37,7 +37,7 @@ class CreateJSONFile {
         Gson gson = new Gson();
       String json = gson.toJson(kompisList);
       
-      try (FileWriter writer = new FileWriter("src/RestFull/Source Package/RestFull/allFriends.json");) {
+      try (FileWriter writer = new FileWriter("C:\\Users\\Torsten\\Documents\\NetBeansProjects\\RestFull\\src\\java\\RestFull\\Test1.txt");) {
         writer.write(json);
   
       } catch (IOException e) {

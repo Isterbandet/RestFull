@@ -14,7 +14,7 @@ import com.google.gson.reflect.TypeToken;
 public class KompisDaoJSONPersistent implements IKompisDao {
     
     Gson gson = new Gson();
-    String bookListPath = "src\\RestFull\\kompisTxt.txt";
+    String bookListPath = "C:\\Users\\Torsten\\Documents\\NetBeansProjects\\RestFull\\src\\java\\RestFull\\kompisTxt.txt";
     
     
     public List<Kompisar> getAllKompisar(){ 
