@@ -18,7 +18,7 @@ public class Kompisar implements Serializable{
         this.nummer = nummer;
   
     }
-    @XmlElement
+@XmlElement
     public String getNamn() {
         return namn;
     }
@@ -26,7 +26,7 @@ public class Kompisar implements Serializable{
     public void setName(String namn){
         this.namn = namn;
     }
-    @XmlElement
+@XmlElement
     public int getNummer() {
         return nummer;
     }

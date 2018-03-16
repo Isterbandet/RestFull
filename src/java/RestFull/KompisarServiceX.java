@@ -1,5 +1,7 @@
 package RestFull;
 
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.GET; 
 import javax.ws.rs.POST;
@@ -8,16 +10,19 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces; 
 import javax.ws.rs.core.MediaType; 
 @Path("/KompisarServiceX")
-
 public class KompisarServiceX {
-    private static KompisarDao kompisdao = new KompisarDao();
-    private static List<Kompisar> allaKompisar = kompisdao.getAllKompisar();
+    //private static KompisarDao kompisdao = new KompisarDao();
+    //private static List<Kompisar> allaKompisar = kompisdao.getAllKompisar();
     
+    private static IKompisDao kompisDao = new KompisDaoJSONPersistent();
+    
+    private static List<Kompisar> allaKompisar = kompisDao.getAllKompisar();
     
     @GET
     @Path("/kompisarJSON")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Kompisar> getKompisarJSON(){
+        
         return allaKompisar;//kompisdao.getAllKompisar();
     }
     @GET
@@ -55,15 +60,19 @@ public class KompisarServiceX {
             allaKompisar.remove(kompisToRemove);
             return res;
         }
+        
+        //persist list
         return inte;
     }
     @POST
     @Path("/kompisar/add")
-    //@Produces(MediaType.APPLICATION_JSON)
+ //   @Produces(MediaType.APPLICATION_JSON)
     public Response addKompis(Kompisar k){
+        System.out.println("Addar kompis " +k.getNamn() + " " +k.getNummer());
         Response res = new Response("Kompis addad", Boolean.FALSE);
         allaKompisar.add(k);
         res.setBoolean(Boolean.TRUE);
+        //persist list
         return res;
         
     }
@@ -90,16 +99,8 @@ public class KompisarServiceX {
            bookList.set(indexToUpdate, b);
            res.setStatus(Boolean.TRUE);
        }
-/*
-       
-     
-    
-    
-    
-    
-    
 
-   
+ 
 }
         
 //        int indexToRemove= -1;
@@ -126,4 +127,5 @@ public class KompisarServiceX {
         
  
 
-//http://www.localhost:8080/RestFull/rest/KompisarServiceX/kompisarJSON
+//aaadadwadwadadwaddrgrgdrgdrggdrdrgsfrssrsawdawaaaekjsa
+*/
